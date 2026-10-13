@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Concreto AI · Projetos e relatório</title>
+<style>
+:root{--bg:#fbf6f1;--panel:#fff;--ink:#22283a;--muted:#76706b;--line:#eadfd4;--or:#f26a1b;--or2:#ff8d42;--orD:#c24d0c;--orL:#fff0e4;--navy:#1e2b4a;--navyD:#131c33;--green:#16845f;--amber:#8a5a00;--red:#a92c25;--ring:rgba(242,106,27,.22)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1000px 500px at 100% -5%,#ffe6d2 0%,transparent 60%),radial-gradient(800px 400px at -10% 30%,#fff1e6 0%,transparent 60%),var(--bg);background-attachment:fixed;font:14px/1.55 "Plus Jakarta Sans",Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+header{position:relative;background:radial-gradient(ellipse at 90% -20%,#ffb27a 0%,transparent 45%),linear-gradient(135deg,#ff8d42 0%,#f26a1b 48%,#cf520e 100%);color:#fff;padding:28px clamp(16px,4vw,48px) 54px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-radius:0 0 32px 32px;box-shadow:0 2px 0 #b8470a,0 22px 40px -16px rgba(194,77,12,.55)}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{width:54px;height:54px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(145deg,#fff,#ffe2cd);color:var(--or);font-size:26px;box-shadow:0 5px 0 rgba(120,40,0,.35),0 12px 20px -6px rgba(90,30,0,.45),inset 0 2px 0 #fff;transform:rotate(-4deg)}
+header h1{font-size:27px;margin:0;font-weight:800;letter-spacing:-.6px;text-shadow:0 2px 0 rgba(150,50,0,.35)}
+header p{margin:2px 0 0;color:#ffeadb;font-weight:500}
+.logo-plate{background:linear-gradient(180deg,#fff,#fff1e6);border-radius:18px;padding:12px 22px;display:flex;align-items:center;box-shadow:0 5px 0 rgba(120,40,0,.35),0 14px 22px -8px rgba(90,30,0,.5),inset 0 2px 0 #fff;transform:rotate(-1.5deg)}
+.logo-plate h1{margin:0;line-height:0;font-size:18px;color:var(--or);text-shadow:none}
+.logo-plate img{height:42px;width:auto;display:block}
+.brand>p{margin:0;max-width:230px;line-height:1.35}
+.tag{border:1px solid #ffffff66;background:linear-gradient(180deg,#ffffff38,#ffffff1a);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;box-shadow:inset 0 1px 0 #ffffff66,0 4px 10px -4px rgba(90,30,0,.4);backdrop-filter:blur(6px)}
+main{max-width:1300px;margin:-26px auto 24px;padding:0 16px 42px}
+.tabs{position:sticky;top:10px;z-index:20;display:inline-flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;padding:6px;background:#f6e9de;border:1px solid #ecd9c8;border-radius:20px;box-shadow:inset 0 3px 6px rgba(120,60,20,.12),0 14px 24px -12px rgba(120,60,20,.35)}
+.tab{background:transparent;border:0;padding:11px 18px;border-radius:14px;color:#7d6b5e;font:inherit;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s,color .15s}
+.tab:hover{color:var(--or);background:#ffffff99}
+.tab.active{background:linear-gradient(180deg,var(--or2),var(--or));color:#fff;box-shadow:0 4px 0 var(--orD),0 10px 16px -6px rgba(242,106,27,.55),inset 0 1px 0 #ffffff66;transform:translateY(-2px)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+.card{background:linear-gradient(180deg,#fff 0%,#fffaf6 100%);border:1px solid var(--line);border-radius:22px;padding:22px;min-width:0;box-shadow:inset 0 1px 0 #fff,0 3px 0 #efe1d4,0 22px 36px -18px rgba(130,60,15,.28);transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 5px 0 #efe1d4,0 30px 44px -18px rgba(130,60,15,.34)}
+.s12{grid-column:span 12}.s8{grid-column:span 8}.s7{grid-column:span 7}.s6{grid-column:span 6}.s5{grid-column:span 5}.s4{grid-column:span 4}.s3{grid-column:span 3}
+h2{font-size:18px;margin:0 0 15px;font-weight:800;letter-spacing:-.3px;color:var(--navy)}
+.card>h2{display:flex;align-items:center;gap:10px}
+.card>h2::before{content:"";width:6px;height:20px;border-radius:6px;background:linear-gradient(180deg,var(--or2),var(--orD));box-shadow:0 2px 4px rgba(194,77,12,.4)}
+h3{font-size:14px;margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:12px}
+.klabel{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:.55px;text-transform:uppercase}.kpi{font-size:25px;font-weight:800;letter-spacing:-.5px;margin:4px 0}
+label{display:block;font-size:12px;font-weight:700;color:#5d5249;margin-bottom:6px}
+input,select,textarea{width:100%;border:1px solid #e3d3c4;border-radius:13px;padding:11px 13px;background:#fffdfb;color:var(--ink);font:inherit;box-shadow:inset 0 2px 4px rgba(120,60,20,.08);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--or);box-shadow:0 0 0 4px var(--ring),inset 0 2px 4px rgba(120,60,20,.06)}
+input[type=file]{padding:9px;background:#fff7f0;border-style:dashed;border-color:#f0b990}
+input[type=file]::file-selector-button{border:0;margin-right:12px;padding:8px 14px;border-radius:10px;background:linear-gradient(180deg,var(--or2),var(--or));color:#fff;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 3px 0 var(--orD)}
+.field{margin-bottom:14px}.row{display:flex;gap:14px;flex-wrap:wrap}.row>*{flex:1;min-width:130px}
+.btn{border:0;border-radius:13px;background:linear-gradient(180deg,var(--or2),var(--or));color:#fff;padding:11px 18px;font:inherit;font-weight:800;cursor:pointer;box-shadow:0 4px 0 var(--orD),0 12px 18px -8px rgba(242,106,27,.6),inset 0 1px 0 #ffffff66;transition:transform .12s,box-shadow .12s,filter .12s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--orD),0 4px 8px -4px rgba(242,106,27,.5),inset 0 1px 0 #ffffff44}
+.btn.secondary{background:linear-gradient(180deg,#fff,#fbf1e8);color:#5b3a22;border:1px solid #ecd6c3;box-shadow:0 4px 0 #e6d2c0,0 10px 14px -8px rgba(120,60,20,.3),inset 0 1px 0 #fff}
+.btn.secondary:active{box-shadow:0 1px 0 #e6d2c0}
+.btn.dark{background:linear-gradient(180deg,#3a4c78,var(--navy));box-shadow:0 4px 0 var(--navyD),0 12px 18px -8px rgba(30,43,74,.6),inset 0 1px 0 #ffffff33}
+.btn.dark:active{box-shadow:0 1px 0 var(--navyD)}
+.btn.warn{background:#fff3dc;color:#795300;border:1px solid #f0d38f;box-shadow:0 4px 0 #ecd08a}
+.btn.danger{background:linear-gradient(180deg,#fff6f5,#ffe9e7);color:#a32720;border:1px solid #ffcfcb;box-shadow:0 3px 0 #f6c2be}
+.btn.danger:active{box-shadow:0 1px 0 #f6c2be}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn:focus-visible,.tab:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.notice,.info,.success{border-radius:14px;padding:13px 16px;font-size:12px;box-shadow:inset 0 1px 0 #ffffffaa}
+.notice{background:#fff7dd;border:1px solid #f1dc93;color:#6d5000}
+.info{background:var(--orL);border:1px solid #fbd5b8;color:#6a3a18}
+.success{background:#eaf8f0;border:1px solid #bce8ce;color:#17623f}
+.s4>.info{height:100%;padding:16px;background:linear-gradient(180deg,#fff,var(--orL));box-shadow:0 3px 0 #f6d9c3,0 14px 20px -14px rgba(194,77,12,.4)}
+.s4>.info strong{color:var(--or);font-size:14px}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:inset 0 2px 5px rgba(120,60,20,.06)}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th,td{padding:11px 10px;text-align:left;border-bottom:1px solid #f1e7dd;vertical-align:middle}
+th{background:#fff4ea;color:#8a5b3a;text-transform:uppercase;letter-spacing:.4px;font-size:10px;font-weight:800}
+tbody tr:hover td{background:#fffaf5}
+tfoot th{background:linear-gradient(180deg,#ffe9d8,#ffdcc3);color:var(--orD);font-size:12px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}td input{padding:8px;min-width:80px}
+.status{display:inline-block;padding:4px 10px;border-radius:999px;background:#ffe9d6;color:#a8480c;font-size:10px;font-weight:800;box-shadow:0 2px 0 #f7d2b6}
+.status.ok{background:#e2f5ea;color:#14633d;box-shadow:0 2px 0 #c4e6d2}.status.bad{background:#fde8e6;color:#a32720;box-shadow:0 2px 0 #f6c9c5}
+.hidden{display:none!important}
+.filedrop{border:2px dashed #f0b990;background:#fff7f0;padding:16px;border-radius:14px}
+.type-picks{display:grid;gap:10px;padding:13px;background:#fff6ee;border:1px solid #f7dcc6;border-radius:16px;box-shadow:inset 0 2px 5px rgba(120,60,20,.06)}
+.type-picks label{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;font-weight:600;color:var(--ink);background:#fff;border:1px solid #f1e0d1;border-radius:12px;padding:10px 12px;cursor:pointer;box-shadow:0 2px 0 #f1e0d1;transition:transform .12s,border-color .12s}
+.type-picks label:hover{border-color:var(--or);transform:translateY(-1px)}
+.type-picks input{width:auto;accent-color:var(--or);box-shadow:none}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.preview{max-height:330px;overflow:auto;background:#fffaf6;border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:inset 0 2px 5px rgba(120,60,20,.06)}
+.preview canvas{max-width:100%;height:auto;display:block;margin:auto}
+.empty{text-align:center;padding:24px;color:var(--muted)}
+.bar{height:14px;background:#f3e6da;border-radius:99px;overflow:hidden;box-shadow:inset 0 3px 5px rgba(120,60,20,.18)}
+.bar span{display:block;background:linear-gradient(180deg,#ffa766,var(--or) 55%,var(--orD));height:100%;width:0;border-radius:99px;box-shadow:inset 0 1px 0 #ffffff77;transition:width .5s ease}
+#projectsList>div{background:linear-gradient(180deg,#fff,#fffaf6);border-radius:16px!important;border-color:var(--line)!important;padding:14px!important;box-shadow:0 3px 0 #f1e3d6,0 14px 20px -14px rgba(130,60,15,.3);transition:transform .18s,box-shadow .18s}
+#projectsList>div:hover{transform:translateY(-2px);box-shadow:0 5px 0 #f1e3d6,0 20px 26px -14px rgba(130,60,15,.35)}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px}
+#reportPrint{display:none}
+@media(max-width:780px){.s8,.s7,.s6,.s5,.s4,.s3{grid-column:span 12}.kpi{font-size:22px}header{border-radius:0 0 24px 24px}.tabs{display:flex;width:100%}.tab{flex:1;padding:10px 8px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+ body{background:white;color:#111;font-size:11px}header,.tabs,.no-print,footer{display:none!important}main{max-width:none;margin:0;padding:0}.page{display:none!important}#relatorio.page{display:block!important}.card{box-shadow:none;border:0;padding:4px 0;break-inside:avoid;background:none;border-radius:0;transform:none}.card>h2::before{display:none}.grid{display:block}.report-header{display:block!important}.report-table th{background:#eee!important;color:#111}.print-only{display:block!important}#reportPrint{display:block!important}.print-note{font-size:9px;color:#333}.report-table{font-size:11px}h1{font-size:22px;color:#111}h2{font-size:15px;color:#111}.report-logo{font-size:12px}
+}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo-plate"><h1><img src="https://mundoapto.com.br/wp-content/uploads/2021/11/logo_orange.svg" alt="Mundo Apto · Concreto AI" onerror="this.replaceWith(document.createTextNode('Concreto AI'))"></h1></div><p>Quantitativo estrutural e controle do consumo real</p></div><div class="tag">MVP 0.2 · Seleção por torre e PDF</div></header>
+<main>
+<div class="tabs no-print">
+<button class="tab active" data-page="projetos">Projetos</button><button class="tab" data-page="quantitativo">Quantitativo</button><button class="tab" data-page="consumo">Consumo real</button><button class="tab" data-page="relatorio">Relatório</button>
+</div>
+<section id="projetos" class="page">
+<div class="grid">
+<div class="card s5"><h2>Selecionar projeto estrutural</h2>
+<div class="field"><label for="tower">Torre</label><select id="tower"><option value="A">Torre A</option><option value="B">Torre B</option></select></div>
+<div class="field"><label for="projectName">Nome / identificação do projeto</label><input id="projectName" placeholder="Ex.: Forma tipo — Setor B"></div>
+<div class="field"><label for="floorType">Tipo / faixa de pavimentos</label><select id="floorType"><option value="12-30">Tipo · 12º ao 30º pavimento</option><option value="2-11">Tipo · 2º ao 11º pavimento</option><option value="other">Outro / conferir</option></select></div>
+<div class="field"><label for="projectPdf">Selecionar PDF específico</label><input id="projectPdf" type="file" accept="application/pdf"></div><div class="field"><label>Tipos de pavimento encontrados neste PDF</label><div class="muted small">Selecione todos os tipos que realmente aparecem na prancha. O sistema cria um registro separado para cada tipo marcado.</div><div id="detectedTypes" class="type-picks"><label><input type="checkbox" value="2-11" checked> Tipo · 2º ao 11º pavimento</label><label><input type="checkbox" value="12-30" checked> Tipo · 12º ao 30º pavimento</label><label><input type="checkbox" value="other"> Outro tipo (confirmar manualmente)</label></div></div>
+<div class="actions"><button id="loadProject" class="btn">Adicionar projeto</button><button id="clearForm" class="btn secondary" type="button">Limpar campos</button></div>
+<p id="fileMsg" class="muted small">Selecione o PDF da torre e marque os tipos de pavimento que aparecem nele.</p>
+<div class="info">Cada registro fica associado à torre, identificação e arquivo selecionado. O mesmo PDF pode gerar um registro para cada tipo marcado. As opções são uma confirmação manual do usuário, não detecção automática; quantitativos confirmados ficam salvos neste navegador.</div>
+</div>
+<div class="card s7"><h2>Projetos cadastrados</h2><div id="projectsList" class="empty">Nenhum projeto cadastrado nesta sessão.</div></div>
+<div class="card s12"><h2>Fluxo de conferência</h2><div class="grid">
+<div class="s4"><div class="info"><strong>1 · Selecionar</strong><br>Escolha Torre A ou B e o PDF de forma correspondente.</div></div>
+<div class="s4"><div class="info"><strong>2 · Conferir</strong><br>Insira ou corrija os quantitativos lidos do quadro da prancha.</div></div>
+<div class="s4"><div class="info"><strong>3 · Relatar</strong><br>Gere um relatório imprimível com os valores confirmados e o total.</div></div>
+</div><p class="muted small">A seleção do PDF ainda não faz extração geométrica automática. A leitura automática das cotas e a identificação das formas será a próxima etapa; medidas ausentes não são estimadas.</p></div>
+</div>
+</section>
+<section id="quantitativo" class="page hidden">
+<div class="grid">
+<div class="card s4"><h2>Projeto ativo</h2><div class="field"><label>Projeto selecionado</label><select id="activeProject"></select></div><div class="field"><label>Perda inicial (%)</label><input id="loss" type="number" min="0" max="100" step=".5" value="5"></div><div class="notice">A perda é aplicada ao volume de concreto. Não é aplicada à área de formas.</div></div>
+<div class="card s8"><h2>Quantitativos confirmados</h2><div class="tablewrap"><table><thead><tr><th>Elemento</th><th class="num">Concreto (m³)</th><th class="num">Formas (m²)</th><th>Conferência</th></tr></thead><tbody id="quantityRows"></tbody><tfoot><tr><th>Total</th><th class="num" id="totalM3">0,00</th><th class="num" id="totalM2">0,00</th><th id="checkStatus">Pendente</th></tr></tfoot></table></div><div class="actions" style="margin-top:12px"><button id="saveQuantities" class="btn">Salvar quantitativos</button><button id="restoreRef" class="btn secondary">Carregar referência da prancha enviada</button></div><p class="muted small">A referência carregada é somente para o projeto em que foi identificada: tipo 12º–30º, Setor B. Não transfira para outra torre/faixa sem conferência.</p></div>
+<div class="card s12"><h2>Conferência visual do PDF</h2><div class="row"><div class="s6"><label for="previewPage">Pré-visualização do PDF</label><div class="preview" id="pdfPreview">Selecione um projeto com PDF para exibir a primeira página, se o navegador permitir.</div></div><div class="s6"><label>Memória de conferência</label><div class="field"><label for="sourceText">Origem dos valores / observações</label><textarea id="sourceText" rows="4" placeholder="Ex.: valores transcritos do quadro de quantitativos, prancha R01."></textarea></div><div class="field"><label for="reviewState">Estado da conferência</label><select id="reviewState"><option value="pendente">Pendente de conferência</option><option value="transcrito">Transcrito do quadro</option><option value="conferido">Conferido visualmente</option><option value="divergencia">Divergência a resolver</option></select></div><button id="saveReview" class="btn secondary">Salvar conferência</button></div></div></div>
+</div>
+</section>
+<section id="consumo" class="page hidden">
+<div class="grid">
+<div class="card s5"><h2>Novo lançamento de concretagem</h2><form id="pourForm"><div class="field"><label for="pourProject">Projeto / torre</label><select id="pourProject" required></select></div><div class="row"><div class="field"><label for="pourDate">Data</label><input id="pourDate" type="date" required></div><div class="field"><label for="pourElement">Elemento</label><select id="pourElement"><option>Vigas</option><option>Pilares</option><option>Lajes</option><option>Vigas + lajes</option><option>Outros</option></select></div></div><div class="field"><label for="pourFloor">Pavimento / frente</label><input id="pourFloor" required placeholder="Ex.: 15º pavimento"></div><div class="field"><label for="pourVolume">Volume (m³)</label><input id="pourVolume" type="number" min=".01" step=".01" required placeholder="Ex.: 18,50"></div><div class="field"><label for="pourNotes">NF, caminhões e observações</label><input id="pourNotes" placeholder="Opcional"></div><button class="btn">Registrar consumo</button></form></div>
+<div class="card s7"><h2>Consumo por projeto</h2><div class="tablewrap"><table><thead><tr><th>Projeto</th><th class="num">Previsto com perda (m³)</th><th class="num">Real (m³)</th><th class="num">Saldo (m³)</th></tr></thead><tbody id="consumptionSummary"></tbody></table></div><div style="margin-top:15px" class="bar"><span id="progress"></span></div><p id="progressLabel" class="muted small"></p></div>
+<div class="card s12"><div class="row" style="align-items:center"><div><h2>Histórico de consumo</h2><p class="muted small">Os registros são associados ao projeto selecionado.</p></div><button class="btn secondary" id="exportCsv">Exportar CSV</button></div><div class="tablewrap"><table><thead><tr><th>Data</th><th>Torre/projeto</th><th>Pavimento</th><th>Elemento</th><th class="num">m³</th><th>Observação</th><th></th></tr></thead><tbody id="pourRows"></tbody></table></div></div>
+</div>
+</section>
+<section id="relatorio" class="page hidden">
+<div class="grid no-print">
+<div class="card s4"><h2>Configurar relatório</h2><div class="field"><label for="reportProject">Projeto / torre</label><select id="reportProject"></select></div><div class="field"><label for="reportTitle">Título do relatório</label><input id="reportTitle" value="Relatório de quantitativo de concreto e formas"></div><div class="field"><label for="reportResponsible">Responsável / empresa (opcional)</label><input id="reportResponsible" placeholder="Nome do responsável"></div><div class="field"><label for="reportDate">Data do relatório</label><input id="reportDate" type="date"></div><button class="btn" id="generateReport">Gerar relatório</button><button class="btn dark" id="printReport" style="margin-top:8px;width:100%">Imprimir / salvar em PDF</button></div>
+<div class="card s8"><h2>Prévia do relatório</h2><div id="reportPreview" class="info">Selecione um projeto e clique em “Gerar relatório”.</div></div>
+</div>
+<div id="reportPrint"></div>
+</section>
+<footer>Concreto AI · Protótipo de apoio. Quantitativos devem ser conferidos na prancha e validados pelo responsável técnico.</footer>
+</main>
+<script>
+const reference=[
+ {name:'Vigas',m3:13.31,m2:175.71},
+ {name:'Pilares',m3:33.40,m2:374.14},
+ {name:'Lajes',m3:40.44,m2:396.07}
+];
+let projects=JSON.parse(localStorage.getItem('cai2_projects')||'[]');
+let pours=JSON.parse(localStorage.getItem('cai2_pours')||'[]');
+let activeId=localStorage.getItem('cai2_active')||'';
+const $=id=>document.getElementById(id);
+const fmt=(n,d=2)=>Number(n||0).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const current=()=>projects.find(p=>p.id===($('activeProject').value||activeId))||projects.find(p=>p.id===activeId)||null;
+const total=(p)=> (p?.items||[]).reduce((s,x)=>s+Number(x.m3||0),0);
+const forms=(p)=> (p?.items||[]).reduce((s,x)=>s+Number(x.m2||0),0);
+const projectReal=(id)=>pours.filter(x=>x.projectId===id).reduce((s,x)=>s+Number(x.volume||0),0);
+const projectLabel=p=>`${p.tower} · ${p.name} · ${p.floorType==='12-30'?'12º–30º':p.floorType==='2-11'?'2º–11º':'a conferir'}`;
+function persist(){localStorage.setItem('cai2_projects',JSON.stringify(projects));localStorage.setItem('cai2_pours',JSON.stringify(pours));localStorage.setItem('cai2_active',activeId)}
+function fillSelects(){const opts=projects.map(p=>`<option value="${p.id}">${esc(projectLabel(p))}</option>`).join('');['activeProject','pourProject','reportProject'].forEach(id=>{const el=$(id),old=el.value;el.innerHTML=opts||'<option value="">Cadastre um projeto primeiro</option>';if(projects.some(p=>p.id===old))el.value=old;else if(projects.some(p=>p.id===activeId))el.value=activeId;});}
+function renderProjects(){$('projectsList').innerHTML=projects.length?projects.map(p=>`<div style="border:1px solid var(--line);border-radius:11px;padding:12px;margin:8px 0"><div class="row" style="align-items:center"><div><strong>${esc(projectLabel(p))}</strong><div class="muted small">${esc(p.fileName||'PDF não associado')} · ${fmt(total(p))} m³ · ${fmt(forms(p))} m² de formas</div><span class="status ${p.review==='conferido'?'ok':p.review==='divergencia'?'bad':''}">${esc(({pendente:'Pendente',transcrito:'Transcrito',conferido:'Conferido',divergencia:'Divergência'})[p.review]||'Pendente')}</span></div><div class="actions"><button class="btn secondary" data-use="${p.id}">Usar</button><button class="btn danger" data-remove="${p.id}">Excluir</button></div></div></div>`).join(''):'<div class="empty">Nenhum projeto cadastrado. Selecione a torre e o PDF acima.</div>';document.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>{activeId=b.dataset.use;persist();fillSelects();renderAll();document.querySelector('[data-page="quantitativo"]').click()});document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{if(!confirm('Excluir este projeto e seus quantitativos? Os lançamentos de consumo associados também serão excluídos.'))return;projects=projects.filter(p=>p.id!==b.dataset.remove);pours=pours.filter(x=>x.projectId!==b.dataset.remove);if(activeId===b.dataset.remove)activeId=projects[0]?.id||'';persist();fillSelects();renderAll()})}
+function renderQuantities(){const p=current();if(!p){$('quantityRows').innerHTML='<tr><td colspan="4" class="empty">Cadastre ou selecione um projeto.</td></tr>';$('totalM3').textContent='—';$('totalM2').textContent='—';return}
+$('quantityRows').innerHTML=p.items.map((x,i)=>`<tr><td>${esc(x.name)}</td><td class="num"><input type="number" min="0" step=".01" value="${x.m3}" data-q="${i}" data-k="m3"></td><td class="num"><input type="number" min="0" step=".01" value="${x.m2}" data-q="${i}" data-k="m2"></td><td><span class="status ${p.review==='conferido'?'ok':p.review==='divergencia'?'bad':''}">${esc(({pendente:'Pendente',transcrito:'Transcrito',conferido:'Conferido',divergencia:'Divergência'})[p.review]||'Pendente')}</span></td></tr>`).join('');$('totalM3').textContent=fmt(total(p));$('totalM2').textContent=fmt(forms(p));$('checkStatus').textContent=p.review==='conferido'?'Conferido':'Verificar';$('sourceText').value=p.sourceText||'';$('reviewState').value=p.review||'pendente';
+document.querySelectorAll('[data-q]').forEach(inp=>inp.onchange=()=>{const v=Number(inp.value);if(v>=0&&Number.isFinite(v)){p.items[+inp.dataset.q][inp.dataset.k]=v;p.review='pendente';persist();renderAll()}})}
+function renderConsumption(){const rows=projects.map(p=>{const meta=total(p)*(1+Number(p.loss??5)/100),r=projectReal(p.id);return `<tr><td>${esc(projectLabel(p))}</td><td class="num">${fmt(meta)}</td><td class="num">${fmt(r)}</td><td class="num">${fmt(meta-r)}</td></tr>`}).join('');$('consumptionSummary').innerHTML=rows||'<tr><td colspan="4" class="empty">Cadastre um projeto para acompanhar consumo.</td></tr>';const p=current(),m=p?total(p)*(1+Number(p.loss??5)/100):0,r=p?projectReal(p.id):0,pct=m?Math.min(100,r/m*100):0;$('progress').style.width=pct+'%';$('progressLabel').textContent=p?`${projectLabel(p)}: ${fmt(pct,1)}% da previsão com perda registrada.`:'Selecione um projeto.';$('pourRows').innerHTML=pours.length?pours.slice().reverse().map(x=>{const p=projects.find(y=>y.id===x.projectId);return `<tr><td>${esc(x.date)}</td><td>${esc(p?projectLabel(p):'Projeto removido')}</td><td>${esc(x.floor)}</td><td>${esc(x.element)}</td><td class="num">${fmt(x.volume)}</td><td>${esc(x.notes||'—')}</td><td><button class="btn danger" data-del="${x.id}">Excluir</button></td></tr>`}).join(''):'<tr><td colspan="7" class="empty">Nenhum lançamento.</td></tr>';document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{pours=pours.filter(x=>x.id!==b.dataset.del);persist();renderAll()})}
+function renderAll(){renderProjects();renderQuantities();renderConsumption();fillSelects()}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===b));document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hidden',p.id!==b.dataset.page));if(b.dataset.page==='relatorio')makePreview()});
+$('loadProject').onclick=()=>{const file=$('projectPdf').files[0];if(!file){$('fileMsg').textContent='Selecione um arquivo PDF antes de adicionar o projeto.';return}if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf')){alert('Selecione um arquivo PDF.');return}const tower=$('tower').value,name=$('projectName').value.trim()||file.name.replace(/\.pdf$/i,'');
+const selected=[...document.querySelectorAll('#detectedTypes input:checked')].map(x=>x.value);
+if(!selected.length){alert('Marque pelo menos um tipo de pavimento presente neste PDF.');return}
+let firstId='';
+selected.forEach((floorType,idx)=>{const id=(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()+idx);if(!firstId)firstId=id;const floorLabel=floorType==='2-11'?'2º–11º':floorType==='12-30'?'12º–30º':'outro tipo';const p={id,tower,name,floorType,fileName:file.name,fileSize:file.size,items:[{name:'Vigas',m3:0,m2:0},{name:'Pilares',m3:0,m2:0},{name:'Lajes',m3:0,m2:0}],loss:5,review:'pendente',sourceText:`PDF selecionado. Tipo ${floorLabel}; quantitativos ainda não conferidos. Confirmar visualmente no documento.`};projects.push(p)});
+activeId=firstId;persist();fillSelects();renderAll();$('fileMsg').textContent=`PDF cadastrado com ${selected.length} tipo(s) de pavimento: ${file.name}. Cada tipo foi criado separadamente para conferir os quantitativos.`;showPdf(file);document.querySelector('[data-page="quantitativo"]').click()};
+$('clearForm').onclick=()=>{$('projectName').value='';$('projectPdf').value='';$('fileMsg').textContent='Selecione o PDF da torre e marque os tipos de pavimento que aparecem nele.'};
+$('activeProject').onchange=()=>{activeId=$('activeProject').value;persist();renderAll();showStoredPdfMessage()};
+$('loss').onchange=()=>{const p=current();if(p){p.loss=Math.max(0,Math.min(100,Number($('loss').value)||0));persist();renderConsumption()}};
+$('saveQuantities').onclick=()=>{const p=current();if(!p)return alert('Selecione um projeto.');p.loss=Math.max(0,Math.min(100,Number($('loss').value)||0));persist();renderAll();alert('Quantitativos salvos neste navegador.')};
+$('restoreRef').onclick=()=>{const p=current();if(!p)return alert('Selecione um projeto.');if(p.tower!=='A'||p.floorType!=='12-30'){if(!confirm('A referência disponível é da prancha enviada, identificada como tipo 12º–30º, Setor B. Deseja copiar para este projeto mesmo assim?'))return}if(!confirm('Copiar os valores transcritos da prancha para este projeto? Confirme somente se a prancha e o escopo forem correspondentes.'))return;p.items=reference.map(x=>({...x}));p.review='transcrito';p.sourceText='Valores transcritos do quadro de quantitativos da prancha enviada: tipo 12º ao 30º pavimento, Setor B. Conferência independente pendente.';persist();renderAll()};
+$('saveReview').onclick=()=>{const p=current();if(!p)return alert('Selecione um projeto.');p.sourceText=$('sourceText').value;p.review=$('reviewState').value;persist();renderAll();alert('Conferência salva.')};
+$('pourForm').onsubmit=e=>{e.preventDefault();const p=projects.find(x=>x.id===$('pourProject').value);if(!p)return alert('Cadastre um projeto primeiro.');const v=Number($('pourVolume').value);if(!(v>0))return;pours.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),projectId:p.id,date:$('pourDate').value,floor:$('pourFloor').value.trim(),element:$('pourElement').value,volume:v,notes:$('pourNotes').value.trim()});persist();e.target.reset();$('pourDate').value=new Date().toISOString().slice(0,10);renderAll()};
+$('exportCsv').onclick=()=>{const rows=[['Data','Torre','Projeto','Pavimento','Elemento','Volume m3','Observacao'],...pours.map(x=>{const p=projects.find(y=>y.id===x.projectId);return [x.date,p?.tower||'',p?.name||'',x.floor,x.element,x.volume,x.notes||'']})];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='concreto-ai-consumo.csv';a.click();URL.revokeObjectURL(a.href)};
+$('reportProject').onchange=makePreview;$('reportTitle').oninput=makePreview;$('reportResponsible').oninput=makePreview;$('reportDate').onchange=makePreview;
+function reportHTML(p){if(!p)return '<p>Nenhum projeto selecionado.</p>';const b=total(p),m=b*(1+Number(p.loss??5)/100),r=projectReal(p.id),used=pours.filter(x=>x.projectId===p.id);return `<div class="report-header"><div class="report-logo">CONCRETO AI · RELATÓRIO TÉCNICO DE QUANTITATIVOS</div><h1>${esc($('reportTitle').value||'Relatório de quantitativo de concreto e formas')}</h1><p><strong>Projeto:</strong> ${esc(projectLabel(p))}</p><p><strong>Arquivo:</strong> ${esc(p.fileName||'Não informado')} · <strong>Revisão/conferência:</strong> ${esc(({pendente:'Pendente',transcrito:'Transcrito do quadro',conferido:'Conferido visualmente',divergencia:'Divergência a resolver'})[p.review]||'Pendente')}</p><p><strong>Responsável:</strong> ${esc($('reportResponsible').value||'Não informado')} · <strong>Data:</strong> ${esc($('reportDate').value||new Date().toISOString().slice(0,10))}</p><hr></div><h2>1. Quantitativo por elemento</h2><table class="report-table"><thead><tr><th>Elemento estrutural</th><th class="num">Concreto de projeto (m³)</th><th class="num">Com perda (${fmt(p.loss??5,1)}%) (m³)</th><th class="num">Área de formas (m²)</th></tr></thead><tbody>${p.items.map(x=>`<tr><td>${esc(x.name)}</td><td class="num">${fmt(x.m3)}</td><td class="num">${fmt(x.m3*(1+Number(p.loss??5)/100))}</td><td class="num">${fmt(x.m2)}</td></tr>`).join('')}<tr><th>TOTAL</th><th class="num">${fmt(b)}</th><th class="num">${fmt(m)}</th><th class="num">${fmt(forms(p))}</th></tr></tbody></table><h2 style="margin-top:18px">2. Resumo do consumo real</h2><table class="report-table"><tbody><tr><th>Volume de projeto</th><td class="num">${fmt(b)} m³</td><th>Previsto com perda</th><td class="num">${fmt(m)} m³</td></tr><tr><th>Consumo registrado</th><td class="num">${fmt(r)} m³</td><th>Saldo da previsão</th><td class="num">${fmt(m-r)} m³</td></tr></tbody></table><h2 style="margin-top:18px">3. Histórico de concretagens</h2><table class="report-table"><thead><tr><th>Data</th><th>Pavimento / frente</th><th>Elemento</th><th class="num">Volume (m³)</th><th>Observação</th></tr></thead><tbody>${used.length?used.map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.floor)}</td><td>${esc(x.element)}</td><td class="num">${fmt(x.volume)}</td><td>${esc(x.notes||'—')}</td></tr>`).join(''):'<tr><td colspan="5">Nenhum consumo registrado para este projeto.</td></tr>'}</tbody></table><h2 style="margin-top:18px">4. Critérios e ressalvas</h2><p class="print-note">${esc(p.sourceText||'Sem observações de conferência registradas.')}</p><p class="print-note">Os valores deste relatório refletem os dados cadastrados no sistema. A seleção de um PDF não significa que as dimensões foram extraídas automaticamente. Medidas ausentes não foram estimadas. Conferir o projeto estrutural vigente e validar os quantitativos com o responsável técnico antes de usar para compra ou execução.</p>`}
+function makePreview(){const p=projects.find(x=>x.id===$('reportProject').value)||current();$('reportPreview').innerHTML=reportHTML(p)}
+$('generateReport').onclick=()=>{const p=projects.find(x=>x.id===$('reportProject').value);if(!p)return alert('Cadastre e selecione um projeto.');$('reportPrint').innerHTML=reportHTML(p);$('reportPreview').innerHTML=reportHTML(p);alert('Relatório gerado. Use “Imprimir / salvar em PDF” para imprimir ou salvar como PDF.')};
+$('printReport').onclick=()=>{const p=projects.find(x=>x.id===$('reportProject').value);if(!p)return alert('Selecione um projeto.');$('reportPrint').innerHTML=reportHTML(p);window.print()};
+function showPdf(file){const url=URL.createObjectURL(file);$('pdfPreview').innerHTML=`<p class="muted small">PDF selecionado: ${esc(file.name)}. A visualização embutida pode variar conforme o navegador.</p><iframe title="Prévia do PDF" src="${url}" style="width:100%;height:290px;border:0"></iframe>`}
+function showStoredPdfMessage(){$('pdfPreview').innerHTML='O PDF foi selecionado durante o cadastro. Selecione-o novamente no campo de projeto para visualizar nesta sessão. O arquivo não é enviado a um servidor.'}
+$('projectPdf').addEventListener('change',e=>{const f=e.target.files[0];$('fileMsg').textContent=f?`${f.name} · ${(f.size/1024/1024).toFixed(2)} MB selecionado.`:'Selecione o PDF da torre e marque os tipos de pavimento que aparecem nele.'});
+$('pourDate').value=new Date().toISOString().slice(0,10);$('reportDate').value=new Date().toISOString().slice(0,10);
+fillSelects();renderAll();if(activeId&&projects.some(p=>p.id===activeId)){$('activeProject').value=activeId;$('reportProject').value=activeId;$('pourProject').value=activeId}
+</script>
+</body></html>
